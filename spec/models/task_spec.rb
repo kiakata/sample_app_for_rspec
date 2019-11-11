@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
   context 'with valid attributes' do
     it "is valid with title, text and user_id" do
       task = user.tasks.build(
