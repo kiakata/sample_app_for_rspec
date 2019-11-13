@@ -26,8 +26,8 @@ RSpec.describe Task, type: :model do
     it 'is invalid with not unique title' do
       task.save
       task_2 = user.tasks.build(
-      title: task.title,
-      status: 0
+        title: task.title,
+        status: 0
       )
       expect(task_2).to be_invalid
       expect(task_2.errors[:title]).to include('has already been taken')
