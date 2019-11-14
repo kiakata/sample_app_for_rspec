@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
+    association :user, factory: :user
     title { 'rspec test' }
-    content { 'test content' }
     status { 0 }
   end
 end

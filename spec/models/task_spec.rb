@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  let(:user) { create(:user) }
-  let(:task) { build(:task, user: user) }
+  let(:task) { build(:task) }
 
   context 'with valid attributes' do
     it "is valid with title, text and user_id" do
@@ -25,9 +24,8 @@ RSpec.describe Task, type: :model do
 
     it 'is invalid with not unique title' do
       task.save
-      task_2 = user.tasks.build(
-        title: task.title,
-        status: 0
+      task_2 = task.user.tasks.build(
+        title: task.title
       )
       expect(task_2).to be_invalid
       expect(task_2.errors[:title]).to include('has already been taken')
