@@ -36,7 +36,7 @@ RSpec.describe "Tasks", type: :system do
     end
 
     context 'タスクを削除' do
-      it '編集したタスクが表示される', js: true do
+      it 'タスク一覧画面が表示される', js: true do
         task
         expect(Task.count).to eq 1
         visit tasks_path
