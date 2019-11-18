@@ -4,16 +4,14 @@ RSpec.describe "Users", type: :system do
   let(:user) { create(:user) }
   let(:another_user) { create(:another_user) }
   let(:password) { 'password' }
-  before do
-    driven_by(:rack_test)
-  end
+
   describe 'ログイン前' do
     describe 'ユーザー新規登録' do
       context 'フォームの入力値が正常' do
         it 'ユーザーの新規作成ができる' do
           visit root_path
           click_link 'SignUp'
-          fill_in 'Email', with: 'test@test.com'
+          fill_in 'Email', with: 'test@rspec.test'
           fill_in 'Password', with: password
           fill_in 'Password confirmation', with: password
           click_button 'SignUp'
@@ -67,7 +65,7 @@ RSpec.describe "Users", type: :system do
       context 'フォームの入力値が正常' do
         it 'ユーザーの編集ができる' do
           visit edit_user_path user
-          fill_in 'Email', with: 'new_address@test.com'
+          fill_in 'Email', with: 'new_address@rspec.test'
           fill_in 'Password', with: password
           fill_in 'Password confirmation', with: password
           click_button 'Update'
