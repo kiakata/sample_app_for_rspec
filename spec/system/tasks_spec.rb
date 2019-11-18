@@ -41,8 +41,10 @@ RSpec.describe "Tasks", type: :system do
         expect(Task.count).to eq 1
         visit tasks_path
         click_link 'Destroy', href: task_path(task)
-        page.driver.browser.switch_to.alert.accept
-        # expect(Task.count).to eq 0
+        # page.driver.browser.switch_to.alert.accept
+        page.accept_confirm { 'Are you sure?' }
+        sleep 1
+        expect(Task.count).to eq 0
         expect(page).to have_content 'Task was successfully destroyed.'
         expect(page).to have_current_path tasks_path
       end
