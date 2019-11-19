@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   let(:user) { create(:user) }
   let(:another_user) { create(:another_user) }
   let(:password) { 'password' }

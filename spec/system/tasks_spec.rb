@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :system do
+RSpec.describe 'Tasks', type: :system do
   let(:user) { create(:user) }
   let(:another_user) { create(:another_user) }
   let(:password) { 'password' }
@@ -43,9 +43,8 @@ RSpec.describe "Tasks", type: :system do
         click_link 'Destroy', href: task_path(task)
         # page.driver.browser.switch_to.alert.accept
         page.accept_confirm { 'Are you sure?' }
-        sleep 1
-        expect(Task.count).to eq 0
         expect(page).to have_content 'Task was successfully destroyed.'
+        expect(Task.count).to eq 0
         expect(page).to have_current_path tasks_path
       end
     end
