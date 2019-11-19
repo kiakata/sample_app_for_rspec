@@ -16,7 +16,7 @@ RSpec.describe 'Tasks', type: :system do
         fill_in 'Title', with: 'test title'
         fill_in 'Content', with: 'test content'
         select 'todo', from: 'Status'
-        fill_in 'Deadline', with: '2019/11/16 00:00'
+        fill_in 'Deadline', with: Time.new(2019, 02, 21, 10, 11, 12)
         click_button 'Create Task'
         expect(page).to have_content 'Task was successfully created.'
         expect(page).to have_current_path task_path 1
